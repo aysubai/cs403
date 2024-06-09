@@ -1,0 +1,103 @@
+--1 create table called students
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    age int,
+    uni varchar(100),
+	city varchar(100)
+);
+
+
+--2 add all cs403 stud to students table
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(1,'aysu','bayramova',20,'aztu','baki')
+
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(2,'ibrahim','almmdv',23,'adpu','baku')
+
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(3,'isa','isali',21,'adnsu','quba')
+
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(4,'tural','ceferov',16,'adu','zerdab')
+
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(5,'ayxan','memmedov ',22,'unec','semkir')
+
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(6,'ferhad','ferhadli',20,'adnsu','qax')
+
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(7,'elmir','cefer',20,'ada','qebele')
+
+--3 add myself twice
+insert into Students (StudentID,FirstName,LastName,age,uni ,city)
+values(8,'aysu','bayramova',20,'aztu','baki')
+
+--4 execute all students
+select * from Students
+
+--5 execute only age
+select age from Students
+
+--6 execute only first and last name
+select FirstName , LastName from Students
+
+--7 execute students where firstname starts with t or a
+select * from Students where FirstName like 't%' or Firstname like 'a%'
+
+--8 execute all students where firstname not equal 'my name'
+select * from students where firstname !='aysu'
+
+--9 ex all students where second letter starts with u in firstname
+select * from students where firstname like '_u%'
+
+--10 update city to rome where id 2 and 3
+update students
+set city= 'rome' where StudentID in (2,3)
+
+
+--11  ex all students where age  > 20
+select age from Students where age>20
+
+--12 order by age (sort) / asc
+select age from Students order by age 
+
+--13 order by name /dec
+select FirstName from Students order by FirstName desc
+
+--14 ex only unique students (distinct)
+select distinct * from students
+
+--15 sum all students age
+select sum(age) from students
+
+--16 find youngest
+select min(age) from students
+
+--17 find eldest
+select max(age) from students
+
+--18 count columns
+select count(studentid) from Students;
+
+--19 avg students age\
+select avg(age) from students
+
+--20 delete student id=5
+delete from students where studentid=5
+
+
+--21 ex students where firstname = 'ayxan' or 'isa' (in)
+select * from students where firstname IN ('ayxan','isa');  --ayxan id 5 idi deye cixmadi 
+
+
+--22 ex students where age between 22 and 29
+select * from students where age between 22 AND 29;
+
+--23 select top 4 
+select top 4 * from students
+
+--24 delete students table 
+-- drop table students
